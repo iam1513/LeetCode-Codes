@@ -1,3 +1,34 @@
+// BOTTOM UP
+
+class Solution {
+public:
+    vector<int> dp;
+    
+    int lengthOfLIS(vector<int>& nums) {
+        dp.clear();
+        dp.resize(2505,-1);
+        dp[0] = 1;
+        
+        int ans = INT_MIN;
+        for(int i = 0; i < nums.size(); i++){
+            for(int j = 0; j < i; j++){
+                if(nums[i] > nums[j]){
+                    dp[i] = max(dp[i], 1+ dp[j]);
+                }
+               }
+             if(dp[i] == -1) {
+                    dp[i] = 1;
+                }
+             ans = max(ans,dp[i]);
+        }
+        
+        return ans;
+    }
+};
+
+/*
+TOP DOWN 
+
 class Solution {
 public:
     
@@ -41,3 +72,5 @@ public:
         return ans;
     }
 };
+
+*/
