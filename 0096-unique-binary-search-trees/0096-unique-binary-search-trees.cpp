@@ -1,9 +1,13 @@
 class Solution {
 public:
     
+    vector<int> dp;
+    
     int f(int n){
         if(n == 0 || n == 1) return 1;
         if(n == 2) return 2;
+        
+        if(dp[n] != -1) return dp[n];
         
         int sum = 0;
         
@@ -11,11 +15,12 @@ public:
             sum+= f(k-1)*f(n-k);
         }
         
-        return sum;
+        return dp[n] = sum;
     }
     
     int numTrees(int n) {
-        
+        dp.clear();
+        dp.resize(25,-1);
         return f(n);
         
     }
