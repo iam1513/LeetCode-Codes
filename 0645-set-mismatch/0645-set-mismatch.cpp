@@ -17,6 +17,9 @@ public:
             if(sol[i] == 2){
                 ans[0] = i;
             }
+            if(ans[0] > 0 && ans[1] > 0) {
+                return ans;
+            }
         }
         
         return ans;
