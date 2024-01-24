@@ -22,7 +22,7 @@ public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         grid = obstacleGrid;
         dp.clear();
-        dp.resize(100,vector<int> (100,-1));
+        dp.resize(105,vector<int> (105,-1));
         if(grid[grid.size()-1][grid[0].size()-1] == 1) return 0;
         return f(0,0);
     }
