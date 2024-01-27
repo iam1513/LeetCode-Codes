@@ -5,7 +5,7 @@ public:
         int currMax = 0;
         int nextMax = 0;
 
-        for (int i = 0; i < nums.size() - 1; ++i) {
+        for (int i = 0; i < nums.size() - 1; i++) {
             
             // Calculating nextMax 
             nextMax = max(nextMax, i + nums[i]);
