@@ -39,17 +39,17 @@ public:
     void rotate(vector<int>& nums, int k) {
         int n = nums.size();
         k = k%n;
-        // cout<<n<<endl;
-        // cout<<k<<endl;
+        cout<<n<<endl;
+        cout<<k<<endl;
         reverseArray(nums, 0, n-k-1);
-        // for(int i = 0; i < n - k ; i++){
-        //     cout<<nums[i]<<" ";
-        // }
-        // cout<<endl;
+        for(int i = 0; i < n - k ; i++){
+            cout<<nums[i]<<" ";
+        }
+        cout<<endl;
         reverseArray(nums, n-k, n-1);
-        // for(int i = n-k; i < n ; i++){
-        //     cout<<nums[i]<<" ";
-        // }
+        for(int i = n-k; i < n ; i++){
+            cout<<nums[i]<<" ";
+        }
         reverseArray(nums,0,n-1);
     }
 };
