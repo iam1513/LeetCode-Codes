@@ -46,33 +46,35 @@ public:
         int rows = board.size();
         int cols = board[0].size();
         
-        vector<vector<int>> a(rows,vector<int> (cols,0));
+        
+        vector<vector<int>> a = board;
+        
         for(int i =0 ; i < rows; i++){
             for(int j = 0; j < cols; j++){
-                int cnt = f(board, i, j);
+                int cnt = f(a, i, j);
                 
-                if(board[i][j] == 1 && cnt < 2){
-                    a[i][j] = 0;
+                if(a[i][j] == 1 && cnt < 2){
+                    board[i][j] = 0;
                 }
                 
-                else if(board[i][j] == 1 && (cnt > 3)){
-                    a[i][j] = 0;
+                else if(a[i][j] == 1 && (cnt > 3)){
+                    board[i][j] = 0;
                 }
                 
-                else if(board[i][j] == 0 && cnt==3){
-                    a[i][j] = 1;
+                else if(a[i][j] == 0 && cnt==3){
+                    board[i][j] = 1;
                 }
                 
-                else if(board[i][j] == 1 && (cnt==2 || cnt==3)){
-                    a[i][j] = 1;
+                else if(a[i][j] == 1 && (cnt==2 || cnt==3)){
+                    board[i][j] = 1;
                 }
             }
         }
         
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols;j++){
-                board[i][j] = a[i][j];
-            }
-        }
+        // for(int i = 0; i < rows; i++){
+        //     for(int j = 0; j < cols;j++){
+        //         board[i][j] = a[i][j];
+        //     }
+        // }
     }
 };
