@@ -3,10 +3,6 @@
 class Solution {
 public:
     
-    void updateV(int v){
-        v = v+1;
-    }
-    
     bool canWePlace(vector<vector<string>> &ans, int n,int r, int c){
         
         for(int i = r-1,j=c-1; i>=0 && j>=0; i--,j-- ){
