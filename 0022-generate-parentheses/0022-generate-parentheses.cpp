@@ -1,34 +1,44 @@
 class Solution {
 public:
     
-    void f(int i, int j, vector<string> &ans, int n,string str){
+    void f(int i, int j, vector<string> &ans, int n,stack<char> & st){
         
         if(j>i){
-            return ;
+            return;
         }
         
-        if(i==n && j == n){ 
+        if(i==n && j == n){
+            
+            string str = "";
+            stack<char> s = st;
+            while(!s.empty()){
+                str+=s.top();
+                s.pop();
+            }
+            
+            reverse(str.begin(),str.end());
+            
             ans.push_back(str);
             return ;
         }
         
-        if(i < n) {
-            str += "(";
-            f(i + 1, j, ans, n,str);
-            str.pop_back();
-        }
-        if(j < n) {
-            str += ")";
-            f(i, j + 1, ans,n,str);
-            str.pop_back();
-        }
+        
+        
+       if(i<n){ st.push('(');
+        f(i + 1, j, ans, n, st);
+        st.pop();}
+        
+        if(j<n){st.push(')');
+        f(i, j + 1, ans, n, st);
+        st.pop();}
+        
         
     }
     
     vector<string> generateParenthesis(int n) {
         vector<string> ans;
-        string str = "";
-        f(0,0,ans,n,str);
+        stack<char> st;
+        f(0,0,ans,n,st);
         
         return ans;
         
