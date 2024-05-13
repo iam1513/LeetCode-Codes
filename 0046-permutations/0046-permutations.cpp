@@ -20,9 +20,14 @@ public:
     
     vector<vector<int>> permute(vector<int>& nums) {
         
+        vector<int> v = nums;
+        
+        for(int i =0; i< nums.size(); i++){
+            cout<<v[i]<<" ";
+        }
         vector<vector<int>> ans;
         
-        f(0,nums,ans);
+        f(0,v,ans);
         
         return ans;
         
