@@ -8,13 +8,17 @@ public:
         int cnt = 0;
         
         for(int i = 0;i < nums.size() ; i++){
-            // Take modulo twice to avoid negative remainders.
-            ps = (nums[i]%k+ps+k)%k;
-            if(mp.find(ps) != mp.end()){
-                cnt = cnt + mp[ps];
+            ps += nums[i];
+            int psm = ps % k; 
+            
+            if (psm < 0) {
+                psm += k;
+            }
+            if(mp.find(psm) != mp.end()){
+                cnt = cnt + mp[psm];
             }
             
-            mp[ps]++;
+            mp[psm]++;
         }
         
         return cnt;
